@@ -79,41 +79,52 @@ function mostrarProductos(lista) {
 
         tarjeta.innerHTML = `
 
-            <article class="card tarjeta-producto h-100">
+    <article class="card tarjeta-producto producto-card-mejorada h-100">
 
-                <img
-                    src="${producto.imagen}"
-                    class="card-img-top"
-                    alt="${producto.nombre}">
+        <div class="producto-imagen-contenedor">
 
-                <div class="card-body">
+            <img
+                src="${producto.imagen}"
+                class="card-img-top producto-imagen"
+                alt="${producto.nombre}"
+                loading="lazy">
 
-                    <span class="categoria-producto">
-                        ${producto.categoria}
-                    </span>
+        </div>
 
-                    <h3 class="h5 mt-2">
-                        ${producto.nombre}
-                    </h3>
+        <div class="card-body">
 
-                    <p class="precio-producto">
-                        $${producto.precio.toFixed(2)}
-                    </p>
+            <span class="categoria-producto producto-etiqueta">
+                <i class="fa-solid fa-tag"></i>
+                ${producto.categoria}
+            </span>
 
-                    <button
-                        class="btn btn-primary w-100 btn-agregar"
-                        data-id="${producto.id}">
+            <h3 class="h5 mt-3 producto-nombre">
+                ${producto.nombre}
+            </h3>
 
-                        <i class="fa-solid fa-cart-plus"></i>
-                        Agregar al carrito
+            <p class="producto-precio-texto">
+                Precio por unidad
+            </p>
 
-                    </button>
+            <p class="precio-producto producto-precio">
+                $${producto.precio.toFixed(2)}
+            </p>
 
-                </div>
+            <button
+                type="button"
+                class="btn btn-primary w-100 btn-agregar producto-boton"
+                data-id="${producto.id}">
 
-            </article>
+                <i class="fa-solid fa-cart-plus"></i>
+                Agregar al carrito
 
-        `;
+            </button>
+
+        </div>
+
+    </article>
+
+`;
 
         contenedor.appendChild(tarjeta);
 
