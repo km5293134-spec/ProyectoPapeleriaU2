@@ -334,3 +334,137 @@ img {
     }
 
 }
+/* Aqui comienza el Stilo de el apartado de servicios
+*/
+
+
+.servicios-header {
+    background: linear-gradient(
+        135deg,
+        #1261a0,
+        #1d8fd1
+    );
+
+    color: white;
+    padding: 75px 20px;
+}
+
+.servicios-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+}
+
+.servicios-header p {
+    max-width: 650px;
+    margin: 15px auto 0;
+    font-size: 17px;
+}
+
+
+
+
+.tarjeta-servicio {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-servicio img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.tarjeta-servicio .card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-servicio .card-body p {
+    flex-grow: 1;
+}
+
+.tarjeta-servicio h3 i {
+    color: var(--azul);
+    margin-right: 8px;
+}
+
+
+
+
+.calculadora-seccion {
+    background-color: #f2f7fc;
+}
+
+.calculadora-box {
+    background-color: white;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.icono-calculadora {
+    font-size: 45px;
+    color: var(--azul);
+    margin-bottom: 20px;
+}
+
+.calculadora-box .form-label {
+    font-weight: 600;
+}
+
+.calculadora-box .form-control,
+.calculadora-box .form-select {
+    padding: 13px;
+    border-radius: 12px;
+    border: 1px solid #d8e0e8;
+}
+
+
+
+
+.resultado-calculadora {
+    background: linear-gradient(
+        135deg,
+        #eaf5ff,
+        #fce7f0
+    );
+
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+}
+
+#totalCalculado {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--azul);
+    margin: 15px 0;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+
+    .servicios-header {
+        padding: 50px 15px;
+    }
+
+    .calculadora-box {
+        padding: 25px 18px;
+    }
+
+    #totalCalculado {
+        font-size: 34px;
+    }
+
+}
