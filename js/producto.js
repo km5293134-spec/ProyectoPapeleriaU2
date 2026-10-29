@@ -1,6 +1,4 @@
-
 const productos = [
-
     {
         id: 1,
         nombre: "Cuadernos escolares",
@@ -8,7 +6,6 @@ const productos = [
         precio: 35,
         imagen: "img/producto/cuadernos.jpeg"
     },
-
     {
         id: 2,
         nombre: "Colores Norma",
@@ -16,7 +13,6 @@ const productos = [
         precio: 65,
         imagen: "img/producto/colores-norma.jpeg"
     },
-
     {
         id: 3,
         nombre: "Lápices escolares",
@@ -24,7 +20,6 @@ const productos = [
         precio: 8,
         imagen: "img/producto/lapices.jpeg"
     },
-
     {
         id: 4,
         nombre: "Accesorios tecnológicos",
@@ -32,7 +27,6 @@ const productos = [
         precio: 80,
         imagen: "img/producto/tecnologia.jpeg"
     },
-
     {
         id: 5,
         nombre: "Globos para fiestas",
@@ -40,36 +34,35 @@ const productos = [
         precio: 25,
         imagen: "img/producto/globos.jpeg"
     }
-
 ];
 
-
-
 const contenedor = document.querySelector("#contenedorProductos");
-
 const buscador = document.querySelector("#buscarProducto");
-
 const filtro = document.querySelector("#filtroCategoria");
-
 const sinResultados = document.querySelector("#sinResultados");
-
 const contadorCarrito = document.querySelector("#contadorCarrito");
 
-
+const contadorResultados = document.querySelector("#contadorResultados");
+const limpiarBusqueda = document.querySelector("#limpiarBusqueda");
+const restablecerFiltros = document.querySelector("#restablecerFiltros");
+const reiniciarBusqueda = document.querySelector("#reiniciarBusqueda");
 
 function mostrarProductos(lista) {
 
     contenedor.innerHTML = "";
 
     if (lista.length === 0) {
-
         sinResultados.classList.remove("d-none");
-
         return;
-
     }
 
     sinResultados.classList.add("d-none");
+
+    const nombresCategorias = {
+        escolar: "Útiles escolares",
+        tecnologia: "Tecnología",
+        fiesta: "Artículos para fiestas"
+    };
 
     lista.forEach(function (producto) {
 
@@ -78,53 +71,51 @@ function mostrarProductos(lista) {
         tarjeta.className = "col-12 col-sm-6 col-lg-4";
 
         tarjeta.innerHTML = `
+            <article class="card tarjeta-producto producto-card-mejorada h-100">
 
-    <article class="card tarjeta-producto producto-card-mejorada h-100">
+                <div class="producto-imagen-contenedor">
 
-        <div class="producto-imagen-contenedor">
+                    <img
+                        src="${producto.imagen}"
+                        class="card-img-top producto-imagen"
+                        alt="${producto.nombre}"
+                        loading="lazy">
 
-            <img
-                src="${producto.imagen}"
-                class="card-img-top producto-imagen"
-                alt="${producto.nombre}"
-                loading="lazy">
+                </div>
 
-        </div>
+                <div class="card-body">
 
-        <div class="card-body">
+                    <span class="categoria-producto producto-etiqueta">
+                        <i class="fa-solid fa-tag"></i>
+                        ${nombresCategorias[producto.categoria] || producto.categoria}
+                    </span>
 
-            <span class="categoria-producto producto-etiqueta">
-                <i class="fa-solid fa-tag"></i>
-                ${producto.categoria}
-            </span>
+                    <h3 class="h5 mt-3 producto-nombre">
+                        ${producto.nombre}
+                    </h3>
 
-            <h3 class="h5 mt-3 producto-nombre">
-                ${producto.nombre}
-            </h3>
+                    <p class="producto-precio-texto">
+                        Precio por unidad
+                    </p>
 
-            <p class="producto-precio-texto">
-                Precio por unidad
-            </p>
+                    <p class="precio-producto producto-precio">
+                        $${producto.precio.toFixed(2)}
+                    </p>
 
-            <p class="precio-producto producto-precio">
-                $${producto.precio.toFixed(2)}
-            </p>
+                    <button
+                        type="button"
+                        class="btn btn-primary w-100 btn-agregar producto-boton"
+                        data-id="${producto.id}">
 
-            <button
-                type="button"
-                class="btn btn-primary w-100 btn-agregar producto-boton"
-                data-id="${producto.id}">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        Agregar al carrito
 
-                <i class="fa-solid fa-cart-plus"></i>
-                Agregar al carrito
+                    </button>
 
-            </button>
+                </div>
 
-        </div>
-
-    </article>
-
-`;
+            </article>
+        `;
 
         contenedor.appendChild(tarjeta);
 
@@ -132,13 +123,9 @@ function mostrarProductos(lista) {
 
 }
 
-
-/* aqui esta el apartado de buscar y filtrar */
-
 function filtrarProductos() {
 
     const texto = buscador.value.toLowerCase().trim();
-
     const categoria = filtro.value;
 
     const resultado = productos.filter(function (producto) {
@@ -156,10 +143,27 @@ function filtrarProductos() {
 
     mostrarProductos(resultado);
 
+    const cantidad = resultado.length;
+
+    contadorResultados.textContent =
+        `Mostrando ${cantidad} ${cantidad === 1 ? "producto" : "productos"}`;
+
+    const hayFiltros = texto !== "" || categoria !== "todos";
+
+    limpiarBusqueda.hidden = buscador.value.length === 0;
+    restablecerFiltros.hidden = !hayFiltros;
+
 }
 
+function limpiarFiltros() {
 
-/* aqui se encuentra el apartado de agregar al acarrito */
+    buscador.value = "";
+    filtro.value = "todos";
+
+    filtrarProductos();
+    buscador.focus();
+
+}
 
 function agregarAlCarrito(id) {
 
@@ -171,7 +175,18 @@ function agregarAlCarrito(id) {
         return;
     }
 
-    let carrito = JSON.parse(localStorage.getItem("carritoCopySchool")) || [];
+    let carrito;
+
+    try {
+        const carritoGuardado = JSON.parse(
+            localStorage.getItem("carritoCopySchool")
+        );
+
+        carrito = Array.isArray(carritoGuardado) ? carritoGuardado : [];
+
+    } catch (error) {
+        carrito = [];
+    }
 
     const existente = carrito.find(function (item) {
         return item.id === id;
@@ -190,7 +205,10 @@ function agregarAlCarrito(id) {
 
     }
 
-    localStorage.setItem("carritoCopySchool", JSON.stringify(carrito));
+    localStorage.setItem(
+        "carritoCopySchool",
+        JSON.stringify(carrito)
+    );
 
     actualizarContador();
 
@@ -204,30 +222,49 @@ function agregarAlCarrito(id) {
 
 }
 
-
-
 function actualizarContador() {
 
-    const carrito = JSON.parse(localStorage.getItem("carritoCopySchool")) || [];
+    let carrito;
+
+    try {
+        const carritoGuardado = JSON.parse(
+            localStorage.getItem("carritoCopySchool")
+        );
+
+        carrito = Array.isArray(carritoGuardado) ? carritoGuardado : [];
+
+    } catch (error) {
+        carrito = [];
+    }
 
     let cantidadTotal = 0;
 
     carrito.forEach(function (producto) {
-        cantidadTotal += producto.cantidad;
+
+        cantidadTotal += Number(producto.cantidad) || 0;
+
     });
 
     contadorCarrito.textContent = cantidadTotal;
 
 }
 
-
-/* Aqui estan los eventos */
-
 buscador.addEventListener("input", filtrarProductos);
 
 filtro.addEventListener("change", filtrarProductos);
 
+limpiarBusqueda.addEventListener("click", function () {
 
+    buscador.value = "";
+
+    filtrarProductos();
+    buscador.focus();
+
+});
+
+restablecerFiltros.addEventListener("click", limpiarFiltros);
+
+reiniciarBusqueda.addEventListener("click", limpiarFiltros);
 
 contenedor.addEventListener("click", function (evento) {
 
@@ -243,9 +280,5 @@ contenedor.addEventListener("click", function (evento) {
 
 });
 
-
-
-
-mostrarProductos(productos);
-
+filtrarProductos();
 actualizarContador();
