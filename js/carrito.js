@@ -337,10 +337,13 @@ function solicitarWhatsApp() {
 
 
 
-    const url =
-        "https://api.whatsapp.com/send?text=" +
-        encodeURIComponent(mensaje);
+    const telefonoWhatsApp = "527731218939";
 
+const url =
+    "https://wa.me/" +
+    telefonoWhatsApp +
+    "?text=" +
+    encodeURIComponent(mensaje);
     window.open(url, "_blank", "noopener,noreferrer");
 
 }
