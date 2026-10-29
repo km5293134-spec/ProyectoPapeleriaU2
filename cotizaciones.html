@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis cotizaciones | Copy-School</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+
+            <div class="container">
+
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo/logo.jpeg"
+                        alt="Copy-School"
+                        class="logo">
+                </a>
+
+                <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir menú">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse"
+                    id="menuPrincipal">
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">
+                                Productos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="servicios.html">
+                                Servicios
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="cotizaciones.html">
+                                Cotizaciones
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">
+                                Contacto
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link carrito-icono position-relative"
+                                href="cotizaciones.html"
+                                aria-label="Ver carrito">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                <span id="contadorCarrito"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+
+        <section class="carrito-header">
+
+            <div class="container text-center">
+
+                <h1>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Mis cotizaciones
+                </h1>
+
+                <p>
+                    Revisa tus productos y servicios antes
+                    de solicitar tu cotización.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="py-5">
+
+            <div class="container">
+
+                <div class="row g-4">
+
+                    <div class="col-12 col-lg-8">
+
+                        <div class="carrito-contenedor">
+
+                            <h2 class="h4 mb-4">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                                Artículos seleccionados
+                            </h2>
+
+                            <div id="listaCarrito">
+
+
+                            </div>
+
+
+
+                            <div id="carritoVacio"
+                                class="text-center py-5 d-none">
+
+                                <i class="fa-solid fa-cart-arrow-down fa-4x mb-3 text-secondary"></i>
+
+                                <h3 class="h5">
+                                    Tu carrito está vacío
+                                </h3>
+
+                                <p>
+                                    Explora nuestros productos
+                                    y servicios para comenzar.
+                                </p>
+
+                                <a href="productos.html"
+                                    class="btn btn-primary">
+
+                                    Explorar productos
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-12 col-lg-4">
+
+                        <div class="resumen-carrito">
+
+                            <h2 class="h4 mb-4">
+                                Resumen de cotización
+                            </h2>
+
+                            <div class="d-flex justify-content-between mb-3">
+
+                                <span>Artículos:</span>
+
+                                <strong id="cantidadArticulos">
+                                    0
+                                </strong>
+
+                            </div>
+
+                            <hr>
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                                <span class="fw-bold">
+                                    Total estimado:
+                                </span>
+
+                                <strong id="totalCarrito"
+                                    class="total-carrito">
+
+                                    $0.00
+
+                                </strong>
+
+                            </div>
+
+
+                            <button id="btnWhatsApp"
+                                class="btn btn-success w-100 mb-3">
+
+                                <i class="fa-brands fa-whatsapp"></i>
+                                Solicitar por WhatsApp
+
+                            </button>
+
+
+                            <button id="btnVaciar"
+                                class="btn btn-outline-danger w-100">
+
+                                <i class="fa-solid fa-trash"></i>
+                                Vaciar carrito
+
+                            </button>
+
+                            <p class="text-muted small mt-3 mb-0">
+                                Los precios son estimados.
+                                La disponibilidad y el total
+                                final se confirmarán en la papelería.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+   
+    <footer class="footer">
+
+        <div class="container text-center">
+
+            <h3 class="h5">Copy-School</h3>
+
+            <p>
+                San Pedro Nextlalpan,
+                Tepetitlán, Hidalgo.
+            </p>
+
+            <p class="mb-0">
+                &copy; <span id="anio"></span>
+                Copy-School. Todos los derechos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   
+    <script src="js/main.js"></script>
+    <script src="js/carrito.js"></script>
+
+</body>
+</html>

@@ -468,3 +468,117 @@ img {
     }
 
 }
+/* 
+   aqui empieza el estilo del CARRITO DE COTIZACIONES
+*/
+
+
+
+.carrito-header {
+    background: linear-gradient(
+        135deg,
+        #1261a0,
+        #f43f78
+    );
+
+    color: white;
+    padding: 75px 20px;
+}
+
+.carrito-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+}
+
+.carrito-header p {
+    max-width: 650px;
+    margin: 15px auto 0;
+}
+
+
+
+
+.carrito-contenedor,
+.resumen-carrito {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.resumen-carrito {
+    position: sticky;
+    top: 20px;
+}
+
+
+
+.articulo-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.articulo-carrito:last-child {
+    border-bottom: none;
+}
+
+
+
+.controles-carrito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cantidad-carrito {
+    min-width: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.controles-carrito button {
+    min-width: 34px;
+}
+
+
+
+.total-carrito {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--azul);
+}
+
+
+
+@media (max-width: 768px) {
+
+    .carrito-header {
+        padding: 50px 15px;
+    }
+
+    .carrito-contenedor,
+    .resumen-carrito {
+        padding: 20px;
+    }
+
+    .articulo-carrito {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controles-carrito {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .resumen-carrito {
+        position: static;
+    }
+
+}
