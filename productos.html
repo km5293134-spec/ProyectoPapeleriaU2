@@ -20,7 +20,6 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
@@ -32,12 +31,10 @@
             <div class="container">
 
                 <a class="navbar-brand marca-copy" href="index.html">
-
                     <img
                         src="img/logo/logo.jpeg"
                         alt="Logotipo de Copy-School"
                         class="logo">
-
                 </a>
 
                 <button
@@ -50,7 +47,6 @@
                     aria-label="Abrir menú de navegación">
 
                     <span class="navbar-toggler-icon"></span>
-
                 </button>
 
                 <div class="collapse navbar-collapse" id="menuPrincipal">
@@ -58,52 +54,39 @@
                     <ul class="navbar-nav ms-auto align-items-lg-center menu-copy">
 
                         <li class="nav-item">
-
                             <a class="nav-link" href="index.html">
                                 Inicio
                             </a>
-
                         </li>
 
                         <li class="nav-item">
-
                             <a
                                 class="nav-link active"
                                 href="productos.html"
                                 aria-current="page">
-
                                 Productos
-
                             </a>
-
                         </li>
 
                         <li class="nav-item">
-
                             <a class="nav-link" href="servicios.html">
                                 Servicios
                             </a>
-
                         </li>
 
                         <li class="nav-item">
-
                             <a class="nav-link" href="cotizaciones.html">
                                 Cotizaciones
                             </a>
-
                         </li>
 
                         <li class="nav-item">
-
                             <a class="nav-link" href="contacto.html">
                                 Contacto
                             </a>
-
                         </li>
 
                         <li class="nav-item">
-
                             <a
                                 class="nav-link carrito-icono carrito-menu-copy position-relative"
                                 href="cotizaciones.html"
@@ -118,13 +101,9 @@
                                 <span
                                     id="contadorCarrito"
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-
                                     0
-
                                 </span>
-
                             </a>
-
                         </li>
 
                     </ul>
@@ -166,9 +145,7 @@
 
                         <div class="col-12 col-md-7">
 
-                            <label
-                                for="buscarProducto"
-                                class="form-label">
+                            <label for="buscarProducto" class="form-label">
 
                                 <i class="fa-solid fa-magnifying-glass me-2"></i>
                                 Buscar productos
@@ -202,9 +179,7 @@
 
                         <div class="col-12 col-md-5">
 
-                            <label
-                                for="filtroCategoria"
-                                class="form-label">
+                            <label for="filtroCategoria" class="form-label">
 
                                 <i class="fa-solid fa-filter me-2"></i>
                                 Filtrar por categoría
@@ -238,14 +213,71 @@
                     </div>
 
 
+                    <div class="filtros-rapidos">
+
+                        <p class="filtros-rapidos-titulo">
+                            Explora por categoría
+                        </p>
+
+                        <div
+                            class="filtros-rapidos-botones"
+                            id="filtrosRapidos">
+
+                            <button
+                                type="button"
+                                class="filtro-rapido activo"
+                                data-categoria="todos"
+                                aria-pressed="true">
+
+                                <i class="fa-solid fa-border-all"></i>
+                                Todos
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="filtro-rapido"
+                                data-categoria="escolar"
+                                aria-pressed="false">
+
+                                <i class="fa-solid fa-pencil"></i>
+                                Útiles escolares
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="filtro-rapido"
+                                data-categoria="tecnologia"
+                                aria-pressed="false">
+
+                                <i class="fa-solid fa-laptop"></i>
+                                Tecnología
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="filtro-rapido"
+                                data-categoria="fiesta"
+                                aria-pressed="false">
+
+                                <i class="fa-solid fa-gift"></i>
+                                Fiestas
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
                     <div class="resultados-productos">
 
                         <p
                             id="contadorResultados"
                             aria-live="polite">
-
                             Mostrando 5 productos
-
                         </p>
 
                         <button
@@ -267,7 +299,6 @@
                 <div
                     class="row g-4"
                     id="contenedorProductos">
-
                 </div>
 
 
@@ -276,9 +307,7 @@
                     class="sin-resultados-mejorado d-none">
 
                     <div class="sin-resultados-icono">
-
                         <i class="fa-solid fa-magnifying-glass"></i>
-
                     </div>
 
                     <h3>No encontramos productos</h3>
@@ -321,11 +350,7 @@
             </p>
 
             <p class="mb-0">
-
-                &copy;
-                <span id="anio"></span>
-                Copy-School.
-
+                &copy; <span id="anio"></span> Copy-School.
             </p>
 
         </div>
@@ -337,9 +362,7 @@
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="js/main.js"></script>
 
