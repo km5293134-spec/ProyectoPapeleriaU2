@@ -2662,3 +2662,85 @@ img {
     }
 
 }
+/* estilos del nuevo boton de watsaap flotantes*/
+.whatsapp-flotante {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 1050;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 18px;
+
+    background: #25d366;
+    color: #ffffff;
+
+    border-radius: 50px;
+    text-decoration: none;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.whatsapp-flotante i {
+    font-size: 27px;
+}
+
+.whatsapp-flotante:hover {
+    background: #1ebe5d;
+    color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-flotante:focus-visible {
+    outline: 3px solid #17243a;
+    outline-offset: 4px;
+}
+
+.whatsapp-texto {
+    white-space: nowrap;
+}
+
+@media (max-width: 575.98px) {
+
+    .whatsapp-flotante {
+        right: 16px;
+        bottom: 16px;
+
+        width: 58px;
+        height: 58px;
+
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .whatsapp-flotante i {
+        font-size: 30px;
+    }
+
+    .whatsapp-texto {
+        display: none;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .whatsapp-flotante {
+        transition: none;
+    }
+
+}
